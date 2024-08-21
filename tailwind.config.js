@@ -1,16 +1,22 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class', // Enable class-based dark mode
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './contexts/**/*.{js,ts,jsx,tsx}', // Ensure context files are included
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      // Customizing colors for dark mode
+      colors: {
+        background: {
+          light: '#ffffff', // Light mode background color
+          dark: '#1a1a1a',  // Dark mode background color
+        },
+        text: {
+          light: '#000000', // Light mode text color
+          dark: '#ffffff',  // Dark mode text color
+        },
       },
     },
   },
