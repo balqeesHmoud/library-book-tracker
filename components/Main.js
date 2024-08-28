@@ -16,7 +16,7 @@ export default function Main() {
       author: formData.get('author'),
       genre: formData.get('genre'),
     };
-    setBooks([...books, newBook]);
+    setBooks((prevBooks) => [...prevBooks, newBook]);
     setLastBook(newBook);
   };
 
@@ -26,24 +26,36 @@ export default function Main() {
         onSubmit={handleSubmit}
         className={`w-full max-w-md p-6 rounded-lg shadow-lg space-y-4 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}
       >
-        <input
-          name="title"
-          placeholder="Book Title"
-          className={`w-full p-2 border rounded focus:outline-none focus:ring ${theme === 'dark' ? 'border-gray-700 bg-gray-700 text-white focus:ring-indigo-600' : 'border-gray-300 bg-white text-black focus:ring-indigo-200'}`}
-          required
-        />
-        <input
-          name="author"
-          placeholder="Author"
-          className={`w-full p-2 border rounded focus:outline-none focus:ring ${theme === 'dark' ? 'border-gray-700 bg-gray-700 text-white focus:ring-indigo-600' : 'border-gray-300 bg-white text-black focus:ring-indigo-200'}`}
-          required
-        />
-        <input
-          name="genre"
-          placeholder="Genre"
-          className={`w-full p-2 border rounded focus:outline-none focus:ring ${theme === 'dark' ? 'border-gray-700 bg-gray-700 text-white focus:ring-indigo-600' : 'border-gray-300 bg-white text-black focus:ring-indigo-200'}`}
-          required
-        />
+        <div>
+          <label htmlFor="title" className="sr-only">Book Title</label>
+          <input
+            id="title"
+            name="title"
+            placeholder="Book Title"
+            className={`w-full p-2 border rounded focus:outline-none focus:ring ${theme === 'dark' ? 'border-gray-700 bg-gray-700 text-white focus:ring-indigo-600' : 'border-gray-300 bg-white text-black focus:ring-indigo-200'}`}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="author" className="sr-only">Author</label>
+          <input
+            id="author"
+            name="author"
+            placeholder="Author"
+            className={`w-full p-2 border rounded focus:outline-none focus:ring ${theme === 'dark' ? 'border-gray-700 bg-gray-700 text-white focus:ring-indigo-600' : 'border-gray-300 bg-white text-black focus:ring-indigo-200'}`}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="genre" className="sr-only">Genre</label>
+          <input
+            id="genre"
+            name="genre"
+            placeholder="Genre"
+            className={`w-full p-2 border rounded focus:outline-none focus:ring ${theme === 'dark' ? 'border-gray-700 bg-gray-700 text-white focus:ring-indigo-600' : 'border-gray-300 bg-white text-black focus:ring-indigo-200'}`}
+            required
+          />
+        </div>
         <button
           type="submit"
           className={`w-full p-2 rounded transition-colors ${theme === 'dark' ? 'bg-indigo-700 text-white hover:bg-indigo-800' : 'bg-indigo-600 text-white hover:bg-indigo-700'}`}
